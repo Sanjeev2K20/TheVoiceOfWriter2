@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Voice of Writer</title>
+
+
+    <link rel="stylesheet" href="https://use.typekit.net/bjy3tsc.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+            margin: 0;
+            padding: 0;
+            background-color: white;
+
+         
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            /* font-family: "Merienda", serif;
+            font-optical-sizing: auto;
+            font-weight: 200;
+            font-style: normal; */
+
+
+
+
+
+
+
+        }
+        .navbar { overflow: hidden; background-color: white; position: fixed; /* Fixed navbar (sticks to the top) */ top: 0; /* Sticks to the top */ width: 100%; /* Full width */ height: 100px; /* Increase the height */ z-index: 1000; /* Ensures navbar is on top */ box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(0, 0, 0, 0.1); display: flex; justify-content: center; align-items: center; padding: 0 20px; /* Add padding for spacing */ } .navbar .title { font-size: 24px; font-weight: bold; margin-right: auto; /* Pushes the title to the left */ } .navbar a { display: block; color: black; text-align: center; padding: 20px 20px; /* Increase padding for larger links */ text-decoration: none; font-size: 17px; } 
+        .navbar a:hover, .navbar .dropdown:hover .dropbtn { 
+            background-color: rgba(0, 0, 0, 0.1); 
+            color: black; 
+        }
+        #dropbtn-categories{
+            border: none;
+            cursor: pointer;
+            background-color: white;
+
+        } 
+        .social-icons { 
+            display: flex; align-items: center; 
+        } .social-icons i { 
+            margin: 0 10px; cursor: pointer; 
+        } /* Media queries for responsiveness */ 
+        @media (max-width: 768px) { .navbar { height: auto; flex-wrap: wrap; justify-content: space-between; padding: 10px; } .navbar a { padding: 10px; font-size: 14px; } .navbar .title { font-size: 20px; } .social-icons { margin-top: 10px; } } @media (max-width: 480px) { .navbar { height: auto; flex-direction: column; padding: 10px; } .navbar a { padding: 10px; font-size: 12px; } .navbar .title { font-size: 18px; text-align: center; width: 100%; } .social-icons { margin-top: 10px; justify-content: center; width: 100%; } 
+        }
+
+
+
+
+        #page2{
+            border: 2px solid red;
+            height: 89vh;
+        }
+        /* navbar close */
+
+
+
+        /* Board start  */
+        #board {
+            background-color: #F8F3EF;
+            min-height: 55vh;
+            min-width: 100vw;
+            border: 2px solid black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #boardbox1 {
+            margin: 5px;
+            padding: 20px;
+            background-color: #F8F3EF;
+            width: 50vw;
+            font-size: 1.5em;
+            text-align: justify;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        #boardbox1 p {
+            margin-top: 20px;
+        }
+        #boardbox1 h4 {
+            padding: 20px 0;
+            font-size: 2em;
+        }
+        #boardbox1 button {
+            align-self: flex-start;
+            margin: 15px 0;
+            padding: 10px 15px;
+            font-size: 1em;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        #boardbox1 button:hover {
+            background-color: #f2b1d2;
+            color: white;
+        }
+        #boardbox2 {
+            background: url("oic2.png") no-repeat center center/cover;
+            width: 35vw;
+        }
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            #board {
+                flex-direction: column;
+                min-height: auto;
+            }
+            #boardbox1, #boardbox2 {
+                width: calc(100% - 40px);
+                margin: 20px auto;
+            }
+            #boardbox1 {
+                font-size: 1.2em;
+            }
+            #boardbox1 h4 {
+                font-size: 1.8em;
+            }
+            #boardbox1 button {
+                font-size: 0.9em;
+                padding: 8px 12px;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 20px 0;
+            }
+            #board {
+                margin-top: 110px; /* Further adjusted margin for navbar on smaller screens */
+            }
+            #boardbox1 {
+                font-size: 1em;
+            }
+            #boardbox1 h4 {
+                font-size: 1.5em;
+            }
+            #boardbox1 button {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+        }
+
+
+
+
+
+        /* introduction page */
+
+       
+        .intro {
+            background-color: #F8F3EF;
+            width: 100%;
+            min-height: 65vh;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .intro-content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: justify;
+        }
+        .intro-content h1 {
+            padding: 10px 0;
+            font-size: 3em;
+        }
+        .intro-content p {
+            padding: 10px 0;
+            font-size: 1.5em;
+        }
+        .intro-content button {
+            align-self: flex-start;
+            margin: 15px 0;
+            padding: 10px 15px;
+            font-size: 1.5em;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .intro-content button:hover {
+            background-color: #f2b1d2;
+            color: white;
+        }
+        .intro-image {
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+        }
+        #intro-box1 .intro-image {
+            background-image: url("oic.jpg");
+        }
+        #intro-box2 .intro-image {
+            background-image: url("oic.jpg");
+        }
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .intro {
+                flex-direction: column;
+            }
+            .intro-content {
+                width: 90%;
+                margin: auto;
+            }
+            .intro-content h1 {
+                font-size: 1.8em;
+            }
+            .intro-content p {
+                font-size: 1em;
+            }
+            .intro-content button {
+                font-size: 0.9em;
+                padding: 8px 12px;
+            }
+        }
+        @media (max-width: 480px) {
+            .intro-content h1 {
+                font-size: 1.5em;
+            }
+            .intro-content p {
+                font-size: 0.9em;
+            }
+            .intro-content button {
+                font-size: 0.8em;
+                padding: 6px 10px;
+            }
+        }
+
+
+
+/* Fullscreen Dialog Box Styles */
+    .dialog {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .dialog-content {
+        display: flex;
+        width: 90%;
+        max-width: 900px;
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .dialog-image {
+        flex: 1;
+    }
+
+    .dialog-image img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .dialog-options {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .dialog-options h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .dialog-options a, .contact-options a {
+        color: #333;
+        text-decoration: none;
+        font-size: 18px;
+        margin: 10px 0;
+        padding: 10px 15px;
+        /* background-color: #f1f1f1; */
+        border-radius: 5px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .dialog-options a:hover, .contact-options a:hover {
+        background-color: #ddd;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        background-color: #e82d2d;
+        color: white;
+    }
+
+
+/* Fullscreen Dialog Box Styles closed ----------------------*/
+
+
+
+ /* Search Dialog Box Styles ---------------------------*/
+ .search-dialog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-dialog-content {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            max-width: 600px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            padding: 20px;
+        }
+
+        .search-dialog-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .search-dialog-options h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-dialog-options input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-dialog-options button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .search-dialog-options button:hover {
+            background-color: #575757;
+        }
+
+        .search-dialog-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-dialog-close-btn:hover {
+            background-color: #e82d2d;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .main-navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .main-navbar a {
+                padding: 8px 16px;
+                font-size: 16px;
+            }
+            .navbar-search-icon img {
+                width: 20px;
+                height: 20px;
+            }
+            .search-dialog-content {
+                width: 80%;
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-navbar {
+                padding: 15px 0;
+            }
+            .main-navbar a {
+                font-size: 14px;
+            }
+            .navbar-search-icon img {
+                width: 18px;
+                height: 18px;
+            }
+            .search-dialog-content {
+                width: 90%;
+                max-width: 400px;
+            }
+        }
+
+         /* Search Dialog Box Styles closed -------------------*/
+
+
+
+
+
+
+
+
+        
+        /* read the blog */
+        .header { text-align: center; margin-top: 60px; margin-bottom: 50px; color: #333; } .header h1 { font-size: 36px; margin: 0; } .header p { font-size: 18px; color: #666; margin: 5px 0; } .blog-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; max-width: 1200px; margin: auto; } .blog-card { width: 300px; border: 1px solid black; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; } .blog-card:hover { transform: translateY(-10px); box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); } .blog-card img { width: 100%; height: auto; } .blog-card .content { padding: 20px; text-align: center; } .blog-card .content h3 { font-size: 18px; margin: 10px 0; color: #333; } .blog-card .content p { font-size: 16px; color: #666; margin: 10px 0; } .blog-card .content a { text-decoration: none; color: #e63e92; font-weight: bold; } .blog-card .content a:hover { text-decoration: underline; } 
+        /* Media queries for responsiveness  */
+        @media (max-width: 768px) { .header h1 { font-size: 30px; } .header p { font-size: 16px; } .blog-card { width: 80%; } } @media (max-width: 480px) { .header h1 { font-size: 24px; } .header p { font-size: 14px; } .blog-card { width: 100%; } .blog-card .content h3 { font-size: 16px; } .blog-card .content p { font-size: 14px; } .blog-card .content a { font-size: 14px; } }
+        
+        
+        
+        .see-all-posts {
+            margin: 40px 0;
+        }
+
+        .see-all-posts button {
+            padding: 15px 40px;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            border-radius: 8px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .see-all-posts button:hover {
+            /* background-color: #0056b3; */
+            background-color: #f2b1d2;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+         /* ---------------------------User form open ---------------------------- */
+         /* Full Width Div Styles */
+        .full-width-div {
+            width: 100%;
+            height: 40vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('oic2.png'); /* Add your background image here */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Center Div Styles */
+        .center-div {
+            width: 50vw;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .center-div h1 {
+            margin-bottom: 10px;
+        }
+
+        .center-div h5 {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .center-div hr {
+            margin: 20px auto;
+            width: 50%;
+            border: 1px solid #ccc;
+        }
+
+        .center-div form {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .center-div input {
+            margin-top: 5px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .center-div button {
+            margin-top: 5px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .center-div button:hover {
+            background-color: #555;
+        }
+
+/* ---------------User form open closed---------------------------- */
+
+
+
+
+
+        /* footer begin */
+
+        #footer {
+            width: 100vw;
+            background-color: whitesmoke;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer1 {
+            flex: 1 1 300px;
+            margin: 10px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer2 {
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer2 a:hover{
+            font-size: 2rem;
+        }
+
+        .footer2 a {
+            text-decoration: none;
+            color: inherit;
+            margin: 5px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            bottom: calc(100% + 10px); /* Position above the button */
+            border-radius: 5px;
+            padding-top: 10px;
+        }
+
+        .arrow-up {
+            width: 0;
+            height: 0;
+
+
+
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #f1f1f1;
+            position: absolute;
+            bottom: -10px;
+            left: 20px; /* Adjust arrow position */
+            
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-container input[type="search"] {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 16px;
+            /* border: 2px solid #04AA6D; */
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-container input[type="search"]:focus {
+            border-color: #f7b5d7;
+            box-shadow: 0 4px 12px rgba(0, 115, 230, 0.2);
+        }
+
+        .search-container input[type="search"]::placeholder {
+            color: #ccc;
+            font-style: italic;
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #04AA6D;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .search-container input[type="search"]:focus + .search-icon {
+            color: #0073e6;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            #footer {
+                flex-direction: column;
+            }
+
+            .footer1 {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer2 {
+                flex-direction: column;
+            }
+        }
+        /* footer close */
+
+        #code1{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+        #code2{
+            border: none;
+        }
+
+
+
+
+       
+
+
+
+
+    </style>
+    
+</head>
+<body>
+    <div class="navbar">
+        <div class="title">The Voice of Writer</div>  
+      
+        <a href="index.html">Home</a>
+        <a href="q2.html">About</a>
+        <a href="#about-us">Lifestyle</a>
+        <a href="#about-us">News</a>
+        <a href="#about-us">Technology</a>
+        <a href="#about-us">Entertainment</a>
+        <a href="#about-us">Travel & Cultural</a>
+        <a href="#about-us">Health & Fitness</a>
+        <a href="#about-us">Food</a>
+        <a href="#about-us">Business</a>
+    
+        
+        <div class="social-icons">
+            <i class="fa-solid fa-bars" onclick="openDialog()"></i>
+            &emsp;
+            <i class="fa-solid fa-magnifying-glass" onclick="openSearchDialog()"></i>
+            <!-- <a></a> -->
+        </div>
+    </div>
+
+
+<!-- Fullscreen Dialog Box -->
+<div id="dialogBox" class="dialog">
+    <div class="dialog-content">
+        <div class="dialog-image">
+            <img src="oic.jpg" alt="Placeholder Image">
+        </div>
+        <div class="dialog-options">
+            <h2>The Voice of Editor</h2>
+            <a href="#home"> <i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#blog">Blog</a>
+            <a href="#newsletter">Newsletter</a>
+            <a href="#contact">Contact</a>
+            <div class="contact-options">
+                <a href="https://www.instagram.com/the_voiceofwriter"><i class="fab fa-instagram"></i></a>
+                <a href="#garden"><i class="fab fa-pinterest"></i></a>
+                <a href="#garden"><i class="fab fa-facebook"></i></a>
+                <a href="#garden"><i class="fab fa-telegram"></i></a>
+                <a href="#garden"><i class="fab fa-twitter"></i></a>
+                <a href="#https://mail.google.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://join.skype.com/invite/xuiQELBgFo1M"><i class="fa-brands fa-skype"></i></a>
+                <a href="https://www.linkedin.com/in/geeta-odedara-68a0211b8"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <button class="close-btn" onclick="closeDialog()"><i class="fa-solid fa-xmark" style="color: #ebedef;"></i></button>
+    </div>
+</div>
+<!-- Dialog box close -->
+
+
+
+<!-- Search Dialog Box -->
+<div id="searchDialog" class="search-dialog">
+    <div class="search-dialog-content">
+        <div class="search-dialog-options">
+            <h2>Search Blogs</h2>
+            <input type="text" id="searchInput" placeholder="Search any blog">
+            <button onclick="searchBlogs()">Search</button>
+        </div>
+        <button class="search-dialog-close-btn" onclick="closeSearchDialog()">Close</button>
+    </div>
+</div>
+<!-- Search Dialog Box close-->
+
+
+
+
+    <div id="board">
+        <div id="boardbox1">
+            <p>  Welcome to the blissful mind </p>
+            <h4 id="code1">Let's add more bliss to your life </h4>
+            <hr>
+            <p> If you’re anything like me, your mind is always buzzing with ideas, questions, and
+                thoughts that just need to be shared.</p>
+                
+            <p>
+                I created this space to help clear the mental
+                clutter and give those thoughts a home.</p>
+            <p></p>
+
+            <button> Tell Me More </button>
+
+
+        </div>
+        <div id="boardbox2">
+            <!-- <img src="oic.jpg">  -->
+        </div>
+
+    </div>
+
+
+    <div class="header">
+
+        <p style="margin-bottom: 20px;">GRAB YOUR TEA AND...</p>
+        <h1 style="font-size: 60px;">Read The Blog</h1>
+    </div>
+
+    <div class="blog-container">
+        <div class="blog-card">
+            <!-- <img src="https://via.placeholder.com/300x200?text=Tulips" alt="Tulips"> -->
+            <img src="oic.jpg" alt="Tulips">
+            <div class="content">
+                <p>MINDSET</p>
+                <h3>The Lesson I Have to Keep Learning</h3>
+                <a href="#">Read It</a>
+            </div>
+        </div>
+        <div class="blog-card">
+            <img src="oic.jpg" alt="Journal">
+            <div class="content">
+                <p>MINDFUL LIVING</p>
+                <h3>Change Your Thinking by Taking a Mindful Pause</h3>
+                <a href="#">Read It</a>
+            </div>
+        </div>
+        <div class="blog-card">
+            <img src="oic.jpg" alt="Water">
+            <div class="content">
+                <p>MINDFUL LIVING</p>
+                <h3>What I'm Learning From This In-Between Season</h3>
+                <a href="#">Read It</a>
+            </div>
+        </div>
+    </div>
+    <div class="see-all-posts">
+        <button>SEE ALL POSTS</button>
+    </div>
+
+
+    
+    <!-- another box -->
+    <div class="intro" id="intro-box1">
+        <div class="intro-content">
+            <p>Hey there!</p>
+            <h1>I’m Geeta Odedara</h1>
+            <hr width="450px">
+            <p>I’m so glad you’re here!</p>
+            <p>Ever felt that spark when you discover something new? </p>
+
+            <p>That's my everyday thrill. </p>
+            <p>    I'm Geeta, your fellow explorer in the world of words and ideas.</p>
+            <p>Think of me as your curious friend who's always excited to share the latest "aha!" moment. </p>
+            <p>Whether it's a fresh marketing insight or a life lesson that hit differently, I'm here to explore it with you.</p>
+
+            <p>Ready to explore ideas, learn something new, and maybe even have a few laughs along the way? Grab your favorite drink (chai, coffee, or something stronger—no judgment here).</p>
+            <p></p>
+            <button>GET TO KNOW ME</button>
+        </div>
+        <div class="intro-image"></div>
+    </div>
+    <div class="intro" id="intro-box2">
+        <div class="intro-image"></div>
+        <div class="intro-content">
+            <h1>I’m Ready to Take on Freelance Projects!</h1>
+
+            <p>I’m here to bring your ideas to life with engaging, SEO-friendly content. 
+                
+            <p>    From blog posts to social media updates, I write about everything from Lifestyle and Tech to Travel, Health, Food, and Business. </p>
+                
+            <p>    Whatever you need, I’ll make sure it’s optimized and speaks to your audience. </p> 
+
+            <p>   Let’s create something great together—just reach out, and let’s get started!</p>
+            <p></p>
+
+
+            <button>GET IN TOUCH TODAY</button>
+        </div>
+    </div>
+
+    <div>
+
+        
+        <div class="header">
+            
+            <p style="margin-bottom: 20px;">Explore what's waiting!</p>
+            <h1 style="font-size: 60px;">Where to Start</h1>
+        </div>
+        
+        <div class="blog-container">
+            <div class="blog-card">
+                <!-- <img src="https://via.placeholder.com/300x200?text=Tulips" alt="Tulips"> -->
+                <img src="oic.jpg" alt="Tulips">
+                <div class="content">
+                    <p>MINDSET</p>
+                    <h3>The Lesson I Have to Keep Learning</h3>
+                    <a href="#">Read It</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="oic.jpg" alt="Journal">
+                <div class="content">
+                    <p>MINDFUL LIVING</p>
+                    <h3>Change Your Thinking by Taking a Mindful Pause</h3>
+                    <a href="#">Read It</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="oic.jpg" alt="Water">
+                <div class="content">
+                    <p>MINDFUL LIVING</p>
+                    <h3>What I'm Learning From This In-Between Season</h3>
+                    <a href="#">Read It</a>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <div class="see-all-posts">
+        <button>SEE ALL POSTS</button>
+    </div>
+   
+    <!-- <div id="page1">
+    </div> -->
+
+      <!-- User form open  -->
+      <div class="full-width-div"> 
+        <div class="center-div"> 
+            <h1>Life is Like a Bicycle</h1> 
+            <h5>Join the Moment</h5> <hr> 
+            <form id="contactForm" onsubmit="handleFormSubmit(event)"> 
+                <input type="text" id="name" name="name" placeholder="Your Name" required> 
+                <input type="email" id="email" name="email" placeholder="Your Email" required> 
+                <button type="submit">Submit</button> 
+            </form> 
+        </div> 
+    </div>
+    <!-- User form open  closed-->
+
+
+
+
+
+
+
+
+
+
+    <!-- footer area -->
+    <div id="footer">
+        <div class="footer1">
+            <h3>SEARCH</h3>
+            <div class="search-container footer2">
+                <input type="search" placeholder="Search...">
+                <span class="search-icon">&#128269;</span>
+            </div>
+        </div>
+        <div class="footer1">
+            <h3>EXPLORE</h3>
+            <div class="footer2">
+                <a href="#decor">Home</a>
+                <a href="#garden">About</a>
+                <a href="#about-us">Blog</a>
+                <div class="dropdown">
+                    <button class="dropbtn" id="dropbtn-categories">Categories</button>
+                    <div class="dropdown-content">
+                        <div class="arrow-up"></div>
+                        <a href="#">Lifestyle</a>
+                        <a href="#">News</a>
+                        <a href="#">Technology</a>
+                        <a href="#">Entertainment</a>
+                        <a href="#">Travel & Culture</a>
+                        <a href="#">Health & Fitness</a>
+                        <a href="#">Food</a>
+                        <a href="#">Business</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer1">
+            <h3>CONNECT</h3>
+            <div class="footer2">
+                <a href="https://www.instagram.com/the_voiceofwriter"><i class="fab fa-instagram"></i></a>
+                <a href="#garden"><i class="fab fa-pinterest"></i></a>
+                <a href="#garden"><i class="fab fa-facebook"></i></a>
+                <a href="#garden"><i class="fab fa-telegram"></i></a>
+                <a href="#garden"><i class="fab fa-twitter"></i></a>
+                <a href="#https://mail.google.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://join.skype.com/invite/xuiQELBgFo1M"><i class="fa-brands fa-skype"></i></a>
+                <a href="https://www.linkedin.com/in/geeta-odedara-68a0211b8"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        //---- ---- function for dropddown in navbar------------------------
+        function toggleDropdown() {
+            const dropdown = document.getElementById("dropdownContent");
+            // Toggle the display of the dropdown content
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }   
+
+        // Close the dropdown if the user clicks outside
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                const dropdown = document.getElementById("dropdownContent");
+                if (dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                }
+            }
+        }
+        //---- ---- function for dropddown in navbar closed ------------------------
+
+// -------------Function for Fullscreen dialog box open -------------------------
+        function openDialog() { 
+            const dialog = document.getElementById("dialogBox"); dialog.style.display = "flex";// Show the dialog
+        } 
+        function closeDialog() {
+            const dialog = document.getElementById("dialogBox"); dialog.style.display = "none"; // Hide the dialog 
+        } 
+        // Close dialog box on press of 'Esc' key 
+        document.addEventListener('keydown', function(event) { 
+            if (event.key === 'Escape') { 
+                closeDialog(); 
+            } 
+        });
+    // -------------Function for Fullscreen dialog box open -------------------------
+
+
+
+    // -------------------Function to open search dialog box------------------------------------------
+        function openSearchDialog() {
+            const dialog = document.getElementById("searchDialog");
+            dialog.style.display = "flex"; // Show the dialog
+        }
+
+        // Function to close search dialog box
+        function closeSearchDialog() {
+            const dialog = document.getElementById("searchDialog");
+            dialog.style.display = "none"; // Hide the dialog
+        }
+
+        // Function to close search dialog box on press of 'Esc' key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeSearchDialog();
+            }
+        });
+
+        // Function to handle search on button click or enter key press
+        function searchBlogs() {
+            const searchInput = document.getElementById("searchInput").value;
+            if (searchInput) {
+                // Perform search logic here
+                console.log(`Searching for: ${searchInput}`);
+                closeSearchDialog()
+            }
+            else{
+                closeSearchDialog();
+            }
+        }
+
+        // Add event listener for enter key press in search input
+        document.getElementById("searchInput").addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                searchBlogs();
+            }
+        });
+
+        // -------------------Function to open search dialog box closed ------------------------------------------
+
+
+
+
+
+
+        // -------------------------top margin to change when size cahnge------------------------------------
+        function adjustBoardMargin() {
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            document.getElementById('board').style.marginTop = navbarHeight + 'px';
+        }
+        window.addEventListener('resize', adjustBoardMargin);
+        window.addEventListener('load', adjustBoardMargin);
+        
+        // -------------------------top margin to change when size cahnge------------------------------------
+
+        
+        
+        ///* ---------------------------User form open ---------------------------- */
+            // Function to handle form submission
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+
+            // Display a thank you message
+            alert(`Thank you for reaching out, ${name}! We'll get back to you at ${email}.`);
+
+            // Clear the form
+            document.getElementById("contactForm").reset();
+        }
+
+///* ---------------------------User form open closed ---------------------------- */
+
+
+
+
+
+
+        
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
